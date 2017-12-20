@@ -210,7 +210,7 @@ class MultiCurl {
 					'content'   => curl_multi_getcontent($done['handle']), ////获取信息
 				];
 
-				if ($info['http_code'] == 200) {
+				if ($info['http_code'] != 200) {
 					$this->responses[$key]['error'] = ['code' => curl_errno($done['handle']), 'msg' => curl_error($done['handle'])];
 				}
 				//新建一个curl资源并加入并发队列
